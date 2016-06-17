@@ -1,0 +1,911 @@
+".text.html.php":
+	'WPCustomizerPanel':
+	    'prefix': 'WPCustomizerPanel'
+	    'body': """// ${1:panel_name} Panel
+			$wp_customize->add_panel( '${2:panel_id}',
+				array(
+					'capability'  		=> 'edit_theme_options',
+					'description'  		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'priority'  		=> 10,
+					'theme_supports'  	=> '',
+					'title'  			=> esc_html__( '${5:panel_name}', '${4:text-domain}' ),
+				)
+			);"""
+	'WPCustomizerSection':
+	    'prefix': 'WPCustomizerSection'
+	    'body': """// ${1:section_name} Section
+			$wp_customize->add_section( '${2:section_id}',
+				array(
+					'active_callback' 	=> '${3:callback_function}',
+					'capability'  		=> 'edit_theme_options',
+					'description'  		=> esc_html__( '${4:description}', '${5:text-domain}' ),
+					'panel' 			=> '${1:panel_id}',
+					'priority'  		=> 10,
+					'theme_supports'  	=> '',
+					'title'  			=> esc_html__( '${1:section_name}', '${5:text-domain}' ),
+				)
+			);"""
+	'WPCustomizerText':
+	    'prefix': 'WPCustomizerText'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'text'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerURL':
+	    'prefix': 'WPCustomizerURL'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'esc_url_raw',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'url'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerEmail':
+	    'prefix': 'WPCustomizerEmail'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'sanitize_email',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'email'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerDate':
+	    'prefix': 'WPCustomizerDate'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => '',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'date'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerCheckbox':
+	    'prefix': 'WPCustomizerCheckbox'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'absint',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'checkbox'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerPassword':
+	    'prefix': 'WPCustomizerPassword'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'sanitize_text_field',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'password'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerRadios':
+	    'prefix': 'WPCustomizerRadios'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '${3:choice1_id}',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}, '${5:text-domain}' ),
+					),
+					'description' 		=> esc_html__( '${6:description}', '${5:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${5:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${7:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'radio'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerSelect':
+	    'prefix': 'WPCustomizerSelect'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '${3:choice1_id}',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}, '${5:text-domain}' ),
+					),
+					'description' 		=> esc_html__( '${6:description}', '${5:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${5:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${7:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'select'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerTextArea':
+	    'prefix': 'WPCustomizerTextArea'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'esc_textarea',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'textarea'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerRange':
+	    'prefix': 'WPCustomizerRange'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => 'intval',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${6:description}', '${5:text-domain}' ),
+					'input_attrs' 		=> array(
+						'class' 		=> 'range-field',
+						'max' 			=> ${7:max_value},
+						'min' 			=> ${8:min_value},
+						'step' 			=> ${9:step_value},
+						'style' 		=> 'color: #020202'
+					),
+					'label'  			=> esc_html__( '${1:field_name}', '${5:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${10:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'range'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerPageSelect':
+	    'prefix': 'WPCustomizerPageSelect'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'sanitize_callback' => '',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'dropdown-pages'
+				)
+			);
+			$wp_customize->get_setting( 'dropdown-pages' )->transport = 'postMessage';"""
+	'WPCustomizerColorChoose':
+	    'prefix': 'WPCustomizerColorChoose'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 			=> 'edit_theme_options',
+					'default'  				=> '#ffffff',
+					'sanitize_callback' 	=> 'sanitize_hex_color',
+					'transport' 			=> 'postMessage',
+					'type' 					=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'${2:field_id}',
+					array(
+						'active_callback' 	=> '',
+						'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+						'label' 			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+						'priority' 			=> 10,
+						'section' 			=> '${5:section_id}',
+						'settings' 			=> '${2:field_id}'
+					),
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerFileUpload':
+	    'prefix': 'WPCustomizerFileUpload'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}' ,
+				array(
+					'capability' 			=> 'edit_theme_options',
+					'default'  				=> '',
+					'sanitize_callback' 	=> 'esc_url_raw',
+					'transport' 			=> 'postMessage',
+					'type' 					=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'${2:field_id}',
+					array(
+						'active_callback' 	=> '',
+						'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+						'label' 			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+						'priority' 			=> 10,
+						'section' 			=> '${5:section_id}',
+						'settings' 			=> '${2:field_id}'
+					),
+				)
+			);"""
+	'WPCustomizerImageUpload':
+	    'prefix': 'WPCustomizerImageUpload'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}' ,
+				array(
+					'capability' 			=> 'edit_theme_options',
+					'default'  				=> '',
+					'sanitize_callback' 	=> 'esc_url_raw',
+					'transport' 			=> 'postMessage',
+					'type' 					=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'${2:field_id}',
+					array(
+						'active_callback' 	=> '',
+						'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+						'label' 			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+						'priority' 			=> 10,
+						'section' 			=> '${5:section_id}',
+						'settings' 			=> '${2:field_id}'
+					),
+				)
+			);"""
+	'WPCustomizerMediaUpload':
+	    'prefix': 'WPCustomizerMediaUpload'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}' ,
+				array(
+					'capability' 			=> 'edit_theme_options',
+					'default'  				=> '',
+					'sanitize_callback' 	=> 'esc_url_raw',
+					'transport' 			=> 'postMessage',
+					'type' 					=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Media_Control(
+					$wp_customize,
+					'${2:field_id}',
+					array(
+						'active_callback' 	=> '',
+						'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+						'label' 			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+						'priority' 			=> 10,
+						'section' 			=> '${5:section_id}',
+						'settings' 			=> '${2:field_id}'
+					),
+				)
+			);"""
+	'WPCustomizerCroppedImage':
+	    'prefix': 'WPCustomizerCroppedImage'
+	    'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}' ,
+				array(
+					'capability' 			=> 'edit_theme_options',
+					'default'  				=> '',
+					'sanitize_callback' 	=> 'esc_url_raw',
+					'transport' 			=> 'postMessage',
+					'type' 					=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Cropped_Image_Control(
+					$wp_customize,
+					'${2:field_id}',
+					array(
+						'active_callback' 	=> '',
+						'description' 		=> esc_html__( '${3:description}', '${4:text-domain}' ),
+						'flex_height' 		=> '${5:flex_height_true_or_false}',
+						'flex_width' 		=> '${6:flex_width_true_or_false}',
+						'height' 			=> '${7:height_in_pixels}',
+						'label' 			=> esc_html__( '${1:field_name}', '${4:text-domain}' ),
+						'priority' 			=> 10,
+						'section' 			=> '${8:section_id}',
+						'settings' 			=> '${2:field_id}',
+						'width' 			=> '${9:width_in_pixels}'
+					),
+				)
+			);"""
+	'WPCustomizerCountriesList':
+		'prefix': 'WPCustomizerCountriesList'
+		'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> 'US,
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'AF' 			=> esc_html__( 'Afghanistan (‫افغانستان‬‎)', ${3:text-domain} ),
+						'AX' 			=> esc_html__( 'Åland Islands (Åland)', ${3:text-domain} ),
+						'AL' 			=> esc_html__( 'Albania (Shqipëri)', ${3:text-domain} ),
+						'DZ' 			=> esc_html__( 'Algeria (‫الجزائر‬‎)', ${3:text-domain} ),
+						'AS' 			=> esc_html__( 'American Samoa', ${3:text-domain} ),
+						'AD' 			=> esc_html__( 'Andorra', ${3:text-domain} ),
+						'AO' 			=> esc_html__( 'Angola', ${3:text-domain} ),
+						'AI' 			=> esc_html__( 'Anguilla', ${3:text-domain} ),
+						'AQ' 			=> esc_html__( 'Antarctica', ${3:text-domain} ),
+						'AG' 			=> esc_html__( 'Antigua and Barbuda', ${3:text-domain} ),
+						'AR' 			=> esc_html__( 'Argentina', ${3:text-domain} ),
+						'AM' 			=> esc_html__( 'Armenia (Հայաստան)', ${3:text-domain} ),
+						'AW' 			=> esc_html__( 'Aruba', ${3:text-domain} ),
+						'AC' 			=> esc_html__( 'Ascension Island', ${3:text-domain} ),
+						'AU' 			=> esc_html__( 'Australia', ${3:text-domain} ),
+						'AT' 			=> esc_html__( 'Austria (Österreich)', ${3:text-domain} ),
+						'AZ' 			=> esc_html__( 'Azerbaijan (Azərbaycan)', ${3:text-domain} ),
+						'BS' 			=> esc_html__( 'Bahamas', ${3:text-domain} ),
+						'BH' 			=> esc_html__( 'Bahrain (‫البحرين‬‎)', ${3:text-domain} ),
+						'BD' 			=> esc_html__( 'Bangladesh (বাংলাদেশ)', ${3:text-domain} ),
+						'BB' 			=> esc_html__( 'Barbados', ${3:text-domain} ),
+						'BY' 			=> esc_html__( 'Belarus (Беларусь)', ${3:text-domain} ),
+						'BE' 			=> esc_html__( 'Belgium (België)', ${3:text-domain} ),
+						'BZ' 			=> esc_html__( 'Belize', ${3:text-domain} ),
+						'BJ' 			=> esc_html__( 'Benin (Bénin)', ${3:text-domain} ),
+						'BM' 			=> esc_html__( 'Bermuda', ${3:text-domain} ),
+						'BT' 			=> esc_html__( 'Bhutan (འབྲུག)', ${3:text-domain} ),
+						'BO' 			=> esc_html__( 'Bolivia', ${3:text-domain} ),
+						'BA' 			=> esc_html__( 'Bosnia and Herzegovina (Босна и Херцеговина)', ${3:text-domain} ),
+						'BW' 			=> esc_html__( 'Botswana', ${3:text-domain} ),
+						'BV' 			=> esc_html__( 'Bouvet Island', ${3:text-domain} ),
+						'BR' 			=> esc_html__( 'Brazil (Brasil)', ${3:text-domain} ),
+						'IO' 			=> esc_html__( 'British Indian Ocean Territory', ${3:text-domain} ),
+						'VG' 			=> esc_html__( 'British Virgin Islands', ${3:text-domain} ),
+						'BN' 			=> esc_html__( 'Brunei', ${3:text-domain} ),
+						'BG' 			=> esc_html__( 'Bulgaria (България)', ${3:text-domain} ),
+						'BF' 			=> esc_html__( 'Burkina Faso', ${3:text-domain} ),
+						'BI' 			=> esc_html__( 'Burundi (Uburundi)', ${3:text-domain} ),
+						'KH' 			=> esc_html__( 'Cambodia (កម្ពុជា)', ${3:text-domain} ),
+						'CM' 			=> esc_html__( 'Cameroon (Cameroun)', ${3:text-domain} ),
+						'CA' 			=> esc_html__( 'Canada', ${3:text-domain} ),
+						'IC' 			=> esc_html__( 'Canary Islands (islas Canarias)', ${3:text-domain} ),
+						'CV' 			=> esc_html__( 'Cape Verde (Kabu Verdi)', ${3:text-domain} ),
+						'BQ' 			=> esc_html__( 'Caribbean Netherlands', ${3:text-domain} ),
+						'KY' 			=> esc_html__( 'Cayman Islands', ${3:text-domain} ),
+						'CF' 			=> esc_html__( 'Central African Republic (République centrafricaine)', ${3:text-domain} ),
+						'EA' 			=> esc_html__( 'Ceuta and Melilla (Ceuta y Melilla)', ${3:text-domain} ),
+						'TD' 			=> esc_html__( 'Chad (Tchad)', ${3:text-domain} ),
+						'CL' 			=> esc_html__( 'Chile', ${3:text-domain} ),
+						'CN' 			=> esc_html__( 'China (中国)', ${3:text-domain} ),
+						'CX' 			=> esc_html__( 'Christmas Island', ${3:text-domain} ),
+						'CP' 			=> esc_html__( 'Clipperton Island', ${3:text-domain} ),
+						'CC' 			=> esc_html__( 'Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))', ${3:text-domain} ),
+						'CO' 			=> esc_html__( 'Colombia', ${3:text-domain} ),
+						'KM' 			=> esc_html__( 'Comoros (‫جزر القمر‬‎)', ${3:text-domain} ),
+						'CD' 			=> esc_html__( 'Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)', ${3:text-domain} ),
+						'CG' 			=> esc_html__( 'Congo (Republic) (Congo-Brazzaville)', ${3:text-domain} ),
+						'CK' 			=> esc_html__( 'Cook Islands', ${3:text-domain} ),
+						'CR' 			=> esc_html__( 'Costa Rica', ${3:text-domain} ),
+						'CI' 			=> esc_html__( 'Côte d’Ivoire', ${3:text-domain} ),
+						'HR' 			=> esc_html__( 'Croatia (Hrvatska)', ${3:text-domain} ),
+						'CU' 			=> esc_html__( 'Cuba', ${3:text-domain} ),
+						'CW' 			=> esc_html__( 'Curaçao', ${3:text-domain} ),
+						'CY' 			=> esc_html__( 'Cyprus (Κύπρος)', ${3:text-domain} ),
+						'CZ' 			=> esc_html__( 'Czech Republic (Česká republika)', ${3:text-domain} ),
+						'DK' 			=> esc_html__( 'Denmark (Danmark)', ${3:text-domain} ),
+						'DG' 			=> esc_html__( 'Diego Garcia', ${3:text-domain} ),
+						'DJ' 			=> esc_html__( 'Djibouti', ${3:text-domain} ),
+						'DM' 			=> esc_html__( 'Dominica', ${3:text-domain} ),
+						'DO' 			=> esc_html__( 'Dominican Republic (República Dominicana)', ${3:text-domain} ),
+						'EC' 			=> esc_html__( 'Ecuador', ${3:text-domain} ),
+						'EG' 			=> esc_html__( 'Egypt (‫مصر‬‎)', ${3:text-domain} ),
+						'SV' 			=> esc_html__( 'El Salvador', ${3:text-domain} ),
+						'GQ' 			=> esc_html__( 'Equatorial Guinea (Guinea Ecuatorial)', ${3:text-domain} ),
+						'ER' 			=> esc_html__( 'Eritrea', ${3:text-domain} ),
+						'EE' 			=> esc_html__( 'Estonia (Eesti)', ${3:text-domain} ),
+						'ET' 			=> esc_html__( 'Ethiopia', ${3:text-domain} ),
+						'FK' 			=> esc_html__( 'Falkland Islands (Islas Malvinas)', ${3:text-domain} ),
+						'FO' 			=> esc_html__( 'Faroe Islands (Føroyar)', ${3:text-domain} ),
+						'FJ' 			=> esc_html__( 'Fiji', ${3:text-domain} ),
+						'FI' 			=> esc_html__( 'Finland (Suomi)', ${3:text-domain} ),
+						'FR' 			=> esc_html__( 'France', ${3:text-domain} ),
+						'GF' 			=> esc_html__( 'French Guiana (Guyane française)', ${3:text-domain} ),
+						'PF' 			=> esc_html__( 'French Polynesia (Polynésie française)', ${3:text-domain} ),
+						'TF' 			=> esc_html__( 'French Southern Territories (Terres australes françaises)', ${3:text-domain} ),
+						'GA' 			=> esc_html__( 'Gabon', ${3:text-domain} ),
+						'GM' 			=> esc_html__( 'Gambia', ${3:text-domain} ),
+						'GE' 			=> esc_html__( 'Georgia (საქართველო)', ${3:text-domain} ),
+						'DE' 			=> esc_html__( 'Germany (Deutschland)', ${3:text-domain} ),
+						'GH' 			=> esc_html__( 'Ghana (Gaana)', ${3:text-domain} ),
+						'GI' 			=> esc_html__( 'Gibraltar', ${3:text-domain} ),
+						'GR' 			=> esc_html__( 'Greece (Ελλάδα)', ${3:text-domain} ),
+						'GL' 			=> esc_html__( 'Greenland (Kalaallit Nunaat)', ${3:text-domain} ),
+						'GD' 			=> esc_html__( 'Grenada', ${3:text-domain} ),
+						'GP' 			=> esc_html__( 'Guadeloupe', ${3:text-domain} ),
+						'GU' 			=> esc_html__( 'Guam', ${3:text-domain} ),
+						'GT' 			=> esc_html__( 'Guatemala', ${3:text-domain} ),
+						'GG' 			=> esc_html__( 'Guernsey', ${3:text-domain} ),
+						'GN' 			=> esc_html__( 'Guinea (Guinée)', ${3:text-domain} ),
+						'GW' 			=> esc_html__( 'Guinea-Bissau (Guiné Bissau)', ${3:text-domain} ),
+						'GY' 			=> esc_html__( 'Guyana', ${3:text-domain} ),
+						'HT' 			=> esc_html__( 'Haiti', ${3:text-domain} ),
+						'HM' 			=> esc_html__( 'Heard & McDonald Islands', ${3:text-domain} ),
+						'HN' 			=> esc_html__( 'Honduras', ${3:text-domain} ),
+						'HK' 			=> esc_html__( 'Hong Kong (香港)', ${3:text-domain} ),
+						'HU' 			=> esc_html__( 'Hungary (Magyarország)', ${3:text-domain} ),
+						'IS' 			=> esc_html__( 'Iceland (Ísland)', ${3:text-domain} ),
+						'IN' 			=> esc_html__( 'India (भारत)', ${3:text-domain} ),
+						'ID' 			=> esc_html__( 'Indonesia', ${3:text-domain} ),
+						'IR' 			=> esc_html__( 'Iran (‫ایران‬‎)', ${3:text-domain} ),
+						'IQ' 			=> esc_html__( 'Iraq (‫العراق‬‎)', ${3:text-domain} ),
+						'IE' 			=> esc_html__( 'Ireland', ${3:text-domain} ),
+						'IM' 			=> esc_html__( 'Isle of Man', ${3:text-domain} ),
+						'IL' 			=> esc_html__( 'Israel (‫ישראל‬‎)', ${3:text-domain} ),
+						'IT' 			=> esc_html__( 'Italy (Italia)', ${3:text-domain} ),
+						'JM' 			=> esc_html__( 'Jamaica', ${3:text-domain} ),
+						'JP' 			=> esc_html__( 'Japan (日本)', ${3:text-domain} ),
+						'JE' 			=> esc_html__( 'Jersey', ${3:text-domain} ),
+						'JO' 			=> esc_html__( 'Jordan (‫الأردن‬‎)', ${3:text-domain} ),
+						'KZ' 			=> esc_html__( 'Kazakhstan (Казахстан)', ${3:text-domain} ),
+						'KE' 			=> esc_html__( 'Kenya', ${3:text-domain} ),
+						'KI' 			=> esc_html__( 'Kiribati', ${3:text-domain} ),
+						'XK' 			=> esc_html__( 'Kosovo (Kosovë)', ${3:text-domain} ),
+						'KW' 			=> esc_html__( 'Kuwait (‫الكويت‬‎)', ${3:text-domain} ),
+						'KG' 			=> esc_html__( 'Kyrgyzstan (Кыргызстан)', ${3:text-domain} ),
+						'LA' 			=> esc_html__( 'Laos (ລາວ)', ${3:text-domain} ),
+						'LV' 			=> esc_html__( 'Latvia (Latvija)', ${3:text-domain} ),
+						'LB' 			=> esc_html__( 'Lebanon (‫لبنان‬‎)', ${3:text-domain} ),
+						'LS' 			=> esc_html__( 'Lesotho', ${3:text-domain} ),
+						'LR' 			=> esc_html__( 'Liberia', ${3:text-domain} ),
+						'LY' 			=> esc_html__( 'Libya (‫ليبيا‬‎)', ${3:text-domain} ),
+						'LI' 			=> esc_html__( 'Liechtenstein', ${3:text-domain} ),
+						'LT' 			=> esc_html__( 'Lithuania (Lietuva)', ${3:text-domain} ),
+						'LU' 			=> esc_html__( 'Luxembourg', ${3:text-domain} ),
+						'MO' 			=> esc_html__( 'Macau (澳門)', ${3:text-domain} ),
+						'MK' 			=> esc_html__( 'Macedonia (FYROM) (Македонија)', ${3:text-domain} ),
+						'MG' 			=> esc_html__( 'Madagascar (Madagasikara)', ${3:text-domain} ),
+						'MW' 			=> esc_html__( 'Malawi', ${3:text-domain} ),
+						'MY' 			=> esc_html__( 'Malaysia', ${3:text-domain} ),
+						'MV' 			=> esc_html__( 'Maldives', ${3:text-domain} ),
+						'ML' 			=> esc_html__( 'Mali', ${3:text-domain} ),
+						'MT' 			=> esc_html__( 'Malta', ${3:text-domain} ),
+						'MH' 			=> esc_html__( 'Marshall Islands', ${3:text-domain} ),
+						'MQ' 			=> esc_html__( 'Martinique', ${3:text-domain} ),
+						'MR' 			=> esc_html__( 'Mauritania (‫موريتانيا‬‎)', ${3:text-domain} ),
+						'MU' 			=> esc_html__( 'Mauritius (Moris)', ${3:text-domain} ),
+						'YT' 			=> esc_html__( 'Mayotte', ${3:text-domain} ),
+						'MX' 			=> esc_html__( 'Mexico (México)', ${3:text-domain} ),
+						'FM' 			=> esc_html__( 'Micronesia', ${3:text-domain} ),
+						'MD' 			=> esc_html__( 'Moldova (Republica Moldova)', ${3:text-domain} ),
+						'MC' 			=> esc_html__( 'Monaco', ${3:text-domain} ),
+						'MN' 			=> esc_html__( 'Mongolia (Монгол)', ${3:text-domain} ),
+						'ME' 			=> esc_html__( 'Montenegro (Crna Gora)', ${3:text-domain} ),
+						'MS' 			=> esc_html__( 'Montserrat', ${3:text-domain} ),
+						'MA' 			=> esc_html__( 'Morocco (‫المغرب‬‎)', ${3:text-domain} ),
+						'MZ' 			=> esc_html__( 'Mozambique (Moçambique)', ${3:text-domain} ),
+						'MM' 			=> esc_html__( 'Myanmar (Burma) (မြန်မာ)', ${3:text-domain} ),
+						'NA' 			=> esc_html__( 'Namibia (Namibië)', ${3:text-domain} ),
+						'NR' 			=> esc_html__( 'Nauru', ${3:text-domain} ),
+						'NP' 			=> esc_html__( 'Nepal (नेपाल)', ${3:text-domain} ),
+						'NL' 			=> esc_html__( 'Netherlands (Nederland)', ${3:text-domain} ),
+						'NC' 			=> esc_html__( 'New Caledonia (Nouvelle-Calédonie)', ${3:text-domain} ),
+						'NZ' 			=> esc_html__( 'New Zealand', ${3:text-domain} ),
+						'NI' 			=> esc_html__( 'Nicaragua', ${3:text-domain} ),
+						'NE' 			=> esc_html__( 'Niger (Nijar)', ${3:text-domain} ),
+						'NG' 			=> esc_html__( 'Nigeria', ${3:text-domain} ),
+						'NU' 			=> esc_html__( 'Niue', ${3:text-domain} ),
+						'NF' 			=> esc_html__( 'Norfolk Island', ${3:text-domain} ),
+						'MP' 			=> esc_html__( 'Northern Mariana Islands', ${3:text-domain} ),
+						'KP' 			=> esc_html__( 'North Korea (조선 민주주의 인민 공화국)', ${3:text-domain} ),
+						'NO' 			=> esc_html__( 'Norway (Norge)', ${3:text-domain} ),
+						'OM' 			=> esc_html__( 'Oman (‫عُمان‬‎)', ${3:text-domain} ),
+						'PK' 			=> esc_html__( 'Pakistan (‫پاکستان‬‎)', ${3:text-domain} ),
+						'PW' 			=> esc_html__( 'Palau', ${3:text-domain} ),
+						'PS' 			=> esc_html__( 'Palestine (‫فلسطين‬‎)', ${3:text-domain} ),
+						'PA' 			=> esc_html__( 'Panama (Panamá)', ${3:text-domain} ),
+						'PG' 			=> esc_html__( 'Papua New Guinea', ${3:text-domain} ),
+						'PY' 			=> esc_html__( 'Paraguay', ${3:text-domain} ),
+						'PE' 			=> esc_html__( 'Peru (Perú)', ${3:text-domain} ),
+						'PH' 			=> esc_html__( 'Philippines', ${3:text-domain} ),
+						'PN' 			=> esc_html__( 'Pitcairn Islands', ${3:text-domain} ),
+						'PL' 			=> esc_html__( 'Poland (Polska)', ${3:text-domain} ),
+						'PT' 			=> esc_html__( 'Portugal', ${3:text-domain} ),
+						'PR' 			=> esc_html__( 'Puerto Rico', ${3:text-domain} ),
+						'QA' 			=> esc_html__( 'Qatar (‫قطر‬‎)', ${3:text-domain} ),
+						'RE' 			=> esc_html__( 'Réunion (La Réunion)', ${3:text-domain} ),
+						'RO' 			=> esc_html__( 'Romania (România)', ${3:text-domain} ),
+						'RU' 			=> esc_html__( 'Russia (Россия)', ${3:text-domain} ),
+						'RW' 			=> esc_html__( 'Rwanda', ${3:text-domain} ),
+						'BL' 			=> esc_html__( 'Saint Barthélemy (Saint-Barthélemy)', ${3:text-domain} ),
+						'SH' 			=> esc_html__( 'Saint Helena', ${3:text-domain} ),
+						'KN' 			=> esc_html__( 'Saint Kitts and Nevis', ${3:text-domain} ),
+						'LC' 			=> esc_html__( 'Saint Lucia', ${3:text-domain} ),
+						'MF' 			=> esc_html__( 'Saint Martin (Saint-Martin (partie française))', ${3:text-domain} ),
+						'PM' 			=> esc_html__( 'Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)', ${3:text-domain} ),
+						'WS' 			=> esc_html__( 'Samoa', ${3:text-domain} ),
+						'SM' 			=> esc_html__( 'San Marino', ${3:text-domain} ),
+						'ST' 			=> esc_html__( 'São Tomé and Príncipe (São Tomé e Príncipe)', ${3:text-domain} ),
+						'SA' 			=> esc_html__( 'Saudi Arabia (‫المملكة العربية السعودية‬‎)', ${3:text-domain} ),
+						'SN' 			=> esc_html__( 'Senegal (Sénégal)', ${3:text-domain} ),
+						'RS' 			=> esc_html__( 'Serbia (Србија)', ${3:text-domain} ),
+						'SC' 			=> esc_html__( 'Seychelles', ${3:text-domain} ),
+						'SL' 			=> esc_html__( 'Sierra Leone', ${3:text-domain} ),
+						'SG' 			=> esc_html__( 'Singapore', ${3:text-domain} ),
+						'SX' 			=> esc_html__( 'Sint Maarten', ${3:text-domain} ),
+						'SK' 			=> esc_html__( 'Slovakia (Slovensko)', ${3:text-domain} ),
+						'SI' 			=> esc_html__( 'Slovenia (Slovenija)', ${3:text-domain} ),
+						'SB' 			=> esc_html__( 'Solomon Islands', ${3:text-domain} ),
+						'SO' 			=> esc_html__( 'Somalia (Soomaaliya)', ${3:text-domain} ),
+						'ZA' 			=> esc_html__( 'South Africa', ${3:text-domain} ),
+						'GS' 			=> esc_html__( 'South Georgia & South Sandwich Islands', ${3:text-domain} ),
+						'KR' 			=> esc_html__( 'South Korea (대한민국)', ${3:text-domain} ),
+						'SS' 			=> esc_html__( 'South Sudan (‫جنوب السودان‬‎)', ${3:text-domain} ),
+						'ES' 			=> esc_html__( 'Spain (España)', ${3:text-domain} ),
+						'LK' 			=> esc_html__( 'Sri Lanka (ශ්‍රී ලංකාව)', ${3:text-domain} ),
+						'VC' 			=> esc_html__( 'St. Vincent & Grenadines', ${3:text-domain} ),
+						'SD' 			=> esc_html__( 'Sudan (‫السودان‬‎)', ${3:text-domain} ),
+						'SR' 			=> esc_html__( 'Suriname', ${3:text-domain} ),
+						'SJ' 			=> esc_html__( 'Svalbard and Jan Mayen (Svalbard og Jan Mayen)', ${3:text-domain} ),
+						'SZ' 			=> esc_html__( 'Swaziland', ${3:text-domain} ),
+						'SE' 			=> esc_html__( 'Sweden (Sverige)', ${3:text-domain} ),
+						'CH' 			=> esc_html__( 'Switzerland (Schweiz)', ${3:text-domain} ),
+						'SY' 			=> esc_html__( 'Syria (‫سوريا‬‎)', ${3:text-domain} ),
+						'TW' 			=> esc_html__( 'Taiwan (台灣)', ${3:text-domain} ),
+						'TJ' 			=> esc_html__( 'Tajikistan', ${3:text-domain} ),
+						'TZ' 			=> esc_html__( 'Tanzania', ${3:text-domain} ),
+						'TH' 			=> esc_html__( 'Thailand (ไทย)', ${3:text-domain} ),
+						'TL' 			=> esc_html__( 'Timor-Leste', ${3:text-domain} ),
+						'TG' 			=> esc_html__( 'Togo', ${3:text-domain} ),
+						'TK' 			=> esc_html__( 'Tokelau', ${3:text-domain} ),
+						'TO' 			=> esc_html__( 'Tonga', ${3:text-domain} ),
+						'TT' 			=> esc_html__( 'Trinidad and Tobago', ${3:text-domain} ),
+						'TA' 			=> esc_html__( 'Tristan da Cunha', ${3:text-domain} ),
+						'TN' 			=> esc_html__( 'Tunisia (‫تونس‬‎)', ${3:text-domain} ),
+						'TR' 			=> esc_html__( 'Turkey (Türkiye)', ${3:text-domain} ),
+						'TM' 			=> esc_html__( 'Turkmenistan', ${3:text-domain} ),
+						'TC' 			=> esc_html__( 'Turks and Caicos Islands', ${3:text-domain} ),
+						'TV' 			=> esc_html__( 'Tuvalu', ${3:text-domain} ),
+						'UM' 			=> esc_html__( 'U.S. Outlying Islands', ${3:text-domain} ),
+						'VI' 			=> esc_html__( 'U.S. Virgin Islands', ${3:text-domain} ),
+						'UG' 			=> esc_html__( 'Uganda', ${3:text-domain} ),
+						'UA' 			=> esc_html__( 'Ukraine (Україна)', ${3:text-domain} ),
+						'AE' 			=> esc_html__( 'United Arab Emirates (‫الإمارات العربية المتحدة‬‎)', ${3:text-domain} ),
+						'GB' 			=> esc_html__( 'United Kingdom', ${3:text-domain} ),
+						'US' 			=> esc_html__( 'United States', ${3:text-domain} ),
+						'UY' 			=> esc_html__( 'Uruguay', ${3:text-domain} ),
+						'UZ' 			=> esc_html__( 'Uzbekistan (Oʻzbekiston)', ${3:text-domain} ),
+						'VU' 			=> esc_html__( 'Vanuatu', ${3:text-domain} ),
+						'VA' 			=> esc_html__( 'Vatican City (Città del Vaticano)', ${3:text-domain} ),
+						'VE' 			=> esc_html__( 'Venezuela', ${3:text-domain} ),
+						'VN' 			=> esc_html__( 'Vietnam (Việt Nam)', ${3:text-domain} ),
+						'WF' 			=> esc_html__( 'Wallis and Futuna', ${3:text-domain} ),
+						'EH' 			=> esc_html__( 'Western Sahara (‫الصحراء الغربية‬‎)', ${3:text-domain} ),
+						'YE' 			=> esc_html__( 'Yemen (‫اليمن‬‎)', ${3:text-domain} ),
+						'ZM' 			=> esc_html__( 'Zambia', ${3:text-domain} ),
+						'ZW' 			=> esc_html__( 'Zimbabwe', ${3:text-domain} ),
+					),
+					'description' 		=> esc_html__( '${4:description}', '${3:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${3:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'select'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerUSStates':
+		'prefix': 'WPCustomizerUSStates'
+		'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'AL' 			=> esc_html__( 'Alabama', ${3:text-domain} ),
+						'AK' 			=> esc_html__( 'Alaska', ${3:text-domain} ),
+						'AZ' 			=> esc_html__( 'Arizona', ${3:text-domain} ),
+						'AR' 			=> esc_html__( 'Arkansas', ${3:text-domain} ),
+						'CA' 			=> esc_html__( 'California', ${3:text-domain} ),
+						'CO' 			=> esc_html__( 'Colorado', ${3:text-domain} ),
+						'CT' 			=> esc_html__( 'Connecticut', ${3:text-domain} ),
+						'DE' 			=> esc_html__( 'Delaware', ${3:text-domain} ),
+						'DC' 			=> esc_html__( 'District of Columbia', ${3:text-domain} ),
+						'FL' 			=> esc_html__( 'Florida', ${3:text-domain} ),
+						'GA' 			=> esc_html__( 'Georgia', ${3:text-domain} ),
+						'HI' 			=> esc_html__( 'Hawaii', ${3:text-domain} ),
+						'ID' 			=> esc_html__( 'Idaho', ${3:text-domain} ),
+						'IL' 			=> esc_html__( 'Illinois', ${3:text-domain} ),
+						'IN' 			=> esc_html__( 'Indiana', ${3:text-domain} ),
+						'IA' 			=> esc_html__( 'Iowa', ${3:text-domain} ),
+						'KS' 			=> esc_html__( 'Kansas', ${3:text-domain} ),
+						'KY' 			=> esc_html__( 'Kentucky', ${3:text-domain} ),
+						'LA' 			=> esc_html__( 'Louisiana', ${3:text-domain} ),
+						'ME' 			=> esc_html__( 'Maine', ${3:text-domain} ),
+						'MD' 			=> esc_html__( 'Maryland', ${3:text-domain} ),
+						'MA' 			=> esc_html__( 'Massachusetts', ${3:text-domain} ),
+						'MI' 			=> esc_html__( 'Michigan', ${3:text-domain} ),
+						'MN' 			=> esc_html__( 'Minnesota', ${3:text-domain} ),
+						'MS' 			=> esc_html__( 'Mississippi', ${3:text-domain} ),
+						'MO' 			=> esc_html__( 'Missouri', ${3:text-domain} ),
+						'MT' 			=> esc_html__( 'Montana', ${3:text-domain} ),
+						'NE' 			=> esc_html__( 'Nebraska', ${3:text-domain} ),
+						'NV' 			=> esc_html__( 'Nevada', ${3:text-domain} ),
+						'NH' 			=> esc_html__( 'New Hampshire', ${3:text-domain} ),
+						'NJ' 			=> esc_html__( 'New Jersey', ${3:text-domain} ),
+						'NM' 			=> esc_html__( 'New Mexico', ${3:text-domain} ),
+						'NY' 			=> esc_html__( 'New York', ${3:text-domain} ),
+						'NC' 			=> esc_html__( 'North Carolina', ${3:text-domain} ),
+						'ND' 			=> esc_html__( 'North Dakota', ${3:text-domain} ),
+						'OH' 			=> esc_html__( 'Ohio', ${3:text-domain} ),
+						'OK' 			=> esc_html__( 'Oklahoma', ${3:text-domain} ),
+						'OR' 			=> esc_html__( 'Oregon', ${3:text-domain} ),
+						'PA' 			=> esc_html__( 'Pennsylvania', ${3:text-domain} ),
+						'RI' 			=> esc_html__( 'Rhode Island', ${3:text-domain} ),
+						'SC' 			=> esc_html__( 'South Carolina', ${3:text-domain} ),
+						'SD' 			=> esc_html__( 'South Dakota', ${3:text-domain} ),
+						'TN' 			=> esc_html__( 'Tennessee', ${3:text-domain} ),
+						'TX' 			=> esc_html__( 'Texas', ${3:text-domain} ),
+						'UT' 			=> esc_html__( 'Utah', ${3:text-domain} ),
+						'VT' 			=> esc_html__( 'Vermont', ${3:text-domain} ),
+						'VA' 			=> esc_html__( 'Virginia', ${3:text-domain} ),
+						'WA' 			=> esc_html__( 'Washington', ${3:text-domain} ),
+						'WV' 			=> esc_html__( 'West Virginia', ${3:text-domain} ),
+						'WI' 			=> esc_html__( 'Wisconsin', ${3:text-domain} ),
+						'WY' 			=> esc_html__( 'Wyoming', ${3:text-domain} ),
+						'AS' 			=> esc_html__( 'American Samoa', ${3:text-domain} ),
+						'AA' 			=> esc_html__( 'Armed Forces America (except Canada)', ${3:text-domain} ),
+						'AE' 			=> esc_html__( 'Armed Forces Africa/Canada/Europe/Middle East', ${3:text-domain} ),
+						'AP' 			=> esc_html__( 'Armed Forces Pacific', ${3:text-domain} ),
+						'FM' 			=> esc_html__( 'Federated States of Micronesia', ${3:text-domain} ),
+						'GU' 			=> esc_html__( 'Guam', ${3:text-domain} ),
+						'MH' 			=> esc_html__( 'Marshall Islands', ${3:text-domain} ),
+						'MP' 			=> esc_html__( 'Northern Mariana Islands', ${3:text-domain} ),
+						'PR' 			=> esc_html__( 'Puerto Rico', ${3:text-domain} ),
+						'PW' 			=> esc_html__( 'Palau', ${3:text-domain} ),
+						'VI' 			=> esc_html__( 'Virgin Islands', ${3:text-domain} )
+					),
+					'description' 		=> esc_html__( '${4:description}', '${3:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${3:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'select'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerCanadianStates':
+		'prefix': 'WPCustomizerCanadianStates'
+		'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'AB' 			=> esc_html__( 'Alberta', '${3:text-domain}' ),
+						'BC' 			=> esc_html__( 'British Columbia', '${3:text-domain}' ),
+						'MB' 			=> esc_html__( 'Manitoba', '${3:text-domain}' ),
+						'NB' 			=> esc_html__( 'New Brunswick', '${3:text-domain}' ),
+						'NL' 			=> esc_html__( 'Newfoundland and Labrador', '${3:text-domain}' ),
+						'NT' 			=> esc_html__( 'Northwest Territories', '${3:text-domain}' ),
+						'NS' 			=> esc_html__( 'Nova Scotia', '${3:text-domain}' ),
+						'NU' 			=> esc_html__( 'Nunavut', '${3:text-domain}' ),
+						'ON' 			=> esc_html__( 'Ontario', '${3:text-domain}' ),
+						'PE' 			=> esc_html__( 'Prince Edward Island', '${3:text-domain}' ),
+						'QC' 			=> esc_html__( 'Quebec', '${3:text-domain}' ),
+						'SK' 			=> esc_html__( 'Saskatchewan', '${3:text-domain}' ),
+						'YT' 			=> esc_html__( 'Yukon', '${3:text-domain}' )
+					),
+					'description' 		=> esc_html__( '${4:description}', '${3:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${3:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'select'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+	'WPCustomizerAustralianStates':
+		'prefix': 'WPCustomizerAustralianStates'
+		'body': """// ${1:field_name} Field
+			$wp_customize->add_setting(
+				'${2:field_id}',
+				array(
+					'capability' 		=> 'edit_theme_options',
+					'default'  			=> '',
+					'transport' 		=> 'postMessage',
+					'type' 				=> 'theme_mod'
+				)
+			);
+			$wp_customize->add_control(
+				'${2:field_id}',
+				array(
+					'active_callback' 	=> '',
+					'choices' 			=> array(
+						'ACT' 			=> esc_html__( 'Australian Capital Territory', '${3:text-domain}' ),
+						'NSW' 			=> esc_html__( 'New South Wales', '${3:text-domain}' ),
+						'NT'  			=> esc_html__( 'Northern Territory', '${3:text-domain}' ),
+						'QLD' 			=> esc_html__( 'Queensland', '${3:text-domain}' ),
+						'SA'  			=> esc_html__( 'South Australia', '${3:text-domain}' ),
+						'TAS' 			=> esc_html__( 'Tasmania', '${3:text-domain}' ),
+						'VIC' 			=> esc_html__( 'Victoria', '${3:text-domain}' ),
+						'WA'  			=> esc_html__( 'Western Australia', '${3:text-domain}' )
+					),
+					'description' 		=> esc_html__( '${4:description}', '${3:text-domain}' ),
+					'label'  			=> esc_html__( '${1:field_name}', '${3:text-domain}' ),
+					'priority' 			=> 10,
+					'section'  			=> '${5:section_id}',
+					'settings' 			=> '${2:field_id}',
+					'type' 				=> 'select'
+				)
+			);
+			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""

@@ -1,18 +1,28 @@
 {
-  "name": "wp-snippets",
-  "main": "./lib/wp-snippets",
-  "version": "0.0.0",
-  "description": "Snippets for WordPress development.",
-  "keywords": [
-  ],
-  "activationCommands": {
-    "atom-workspace": "wp-snippets:toggle"
-  },
-  "repository": "https://github.com/atom/wp-snippets",
-  "license": "MIT",
-  "engines": {
-    "atom": ">=1.0.0 <2.0.0"
-  },
-  "dependencies": {
-  }
+	"name": "wp-snippets",
+	"main": "./lib/wp-snippets",
+	"version": "0.0.0",
+	"description": "Snippets for WordPress development.",
+	"keywords": [
+		"WordPress",
+		"snippets",
+		"theme",
+		"plugin"
+	],
+	"activationCommands": {
+		"atom-workspace": "wp-snippets:toggle"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/slushman/atom-wp-snippets.git"
+	},
+	"license": "MIT",
+	"engines": {
+		"atom": ">=1.0.0 <2.0.0"
+	},
+	"bugs": {
+		"url": "https://github.com/slushman/atom-wp-snippets/issues"
+	},
+	"dependencies": {
+	}
 }
