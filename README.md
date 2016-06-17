@@ -1,5 +1,3 @@
 # wp-snippets package
 
-A short description of your package.
-
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+A set of snippets for WordPress developments. Covers many of the more common things needed for plugin and theme development like registering custom post types, taxonomies, and metaboxes, the Settings API, and Customizer panels, sections, and controls.

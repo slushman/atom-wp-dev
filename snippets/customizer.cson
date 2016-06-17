@@ -8,7 +8,7 @@
 					'description'  		=> esc_html__( '${3:description}', '${4:text-domain}' ),
 					'priority'  		=> 10,
 					'theme_supports'  	=> '',
-					'title'  			=> esc_html__( '${5:panel_name}', '${4:text-domain}' ),
+					'title'  			=> esc_html__( '${1:panel_name}', '${4:text-domain}' ),
 				)
 			);"""
 	'WPCustomizerSection':

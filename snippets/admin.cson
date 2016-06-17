@@ -1,0 +1,82 @@
+".text.html.php":
+	'WPAdminMenu':
+	    'prefix': 'WPAdminMenu'
+	    'body': """
+			add_menu_page(
+				esc_html__( '${1:page_title}', '${7:text-domain}' ),
+				esc_html__( '${2:menu_title}', '${7:text-domain}' ),
+				'manage_options',
+				${3:plugin_name} . '-settings',
+				array( $this, '${4:function_name}' )
+				${5:icon_url},
+				${6:position}
+			);"""
+	'WPAdminSubMenu':
+	    'prefix': 'WPAdminSubMenu'
+	    'body': """
+			add_submenu_page(
+				'${1:parent_slug}',
+				esc_html__( '${2:page_title}', '${6:text-domain}' ),
+				esc_html__( '${3:menu_title}', '${6:text-domain}' ),
+				'manage_options',
+				${4:plugin_name} . '-settings',
+				array( $this, '${5:function_name}' )
+			);"""
+	'WPEnqueueScript':
+	    'prefix': 'WPEnqueueScript'
+	    'body': """wp_enqueue_script( ${1:unique_name}, '${2:source_url}', array( ${3:dependencies} ), ${4:version}, ${5:in_footer_boolean} );"""
+	'WPEnqueueStyle':
+	    'prefix': 'WPEnqueueStyle'
+	    'body': """wp_enqueue_style( ${1:unique_name}, '${2:source_url}', array( ${3:dependencies} ), ${4:version}, '${5:media}' );"""
+	'WPi18n':
+	    'prefix': 'WPi18n'
+	    'body': """
+			load_plugin_textdomain(
+				'${1:text-domain}',
+				false,
+				'${2:relative_path}'
+			);"""
+	'WPMetabox':
+	    'prefix': 'WPMetabox'
+	    'body': """
+			add_meta_box(
+				'${1:metabox_id}',
+				apply_filters( ${1:metabox_id} . '-title', esc_html__( '${2:metabox_name}', '${3:text-domain}' ) ),
+				array( $this, '${4:function_name}' ),
+				'${5:screen}',
+				'${6:context_normal_side_advanced_or_custom}',
+				'${7:priority_default_high_or_low}',
+				${8:args_array}
+			);"""
+	'WPRegisterSetting':
+	    'prefix': 'WPRegisterSetting'
+	    'body': """
+			register_setting(
+				${1:option_group},
+				${2:option_name},
+				array( $this, '${3:sanitize_callback}' )
+			);"""
+	'WPSettingsField':
+	    'prefix': 'WPSettingsField'
+	    'body': """
+			add_settings_field(
+				'${1:field_id}',
+				apply_filters( ${2:plugin_name} . '-label-${1:field_id}', esc_html__( '${3:field_name}', '${4:text-domain}' ) ),
+				array( $this, '${5:function_name}' ),
+				${2:plugin_name},
+				${6:section_name},
+				array(
+					'description' 	=> __( '${7:field_description}.', '${4:text-domain}' ),
+					'id' 			=> '${1:field_id}',
+					'value' 		=> '',
+				)
+			);"""
+	'WPSettingsSection':
+	    'prefix': 'WPSettingsSection'
+	    'body': """
+			add_settings_section(
+				${1:section_id},
+				apply_filters( ${2:plugin_name} . '-section-${1:section_id}-title', esc_html__( '${3:section_name}', '${4:text-domain}' ) ),
+				array( $this, '${5:function_name}' ),
+				${2:plugin_name}
+			);"""

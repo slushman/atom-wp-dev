@@ -1,0 +1,127 @@
+".text.html.php":
+	'WPCPT':
+	    'prefix': 'WPCPT'
+	    'body': """
+			$opts['can_export']								= TRUE;
+			$opts['capability_type']						= ${1:capability};
+			$opts['description']							= '';
+			$opts['exclude_from_search']					= FALSE;
+			$opts['has_archive']							= FALSE;
+			$opts['hierarchical']							= FALSE;
+			$opts['map_meta_cap']							= TRUE;
+			$opts['menu_icon']								= 'dashicons-${2:dashicon_name}';
+			$opts['menu_position']							= 25;
+			$opts['public']									= TRUE;
+			$opts['publicly_querable']						= TRUE;
+			$opts['query_var']								= TRUE;
+			$opts['register_meta_box_cb']					= '';
+			$opts['rest_base']								= '${3:post_type_name_lowercase}';
+			$opts['rest_controller_class']					= 'WP_REST_Posts_Controller';
+			$opts['rewrite']								= FALSE;
+			$opts['show_in_admin_bar']						= TRUE;
+			$opts['show_in_menu']							= TRUE;
+			$opts['show_in_nav_menu']						= TRUE;
+			$opts['show_ui']								= TRUE;
+			$opts['supports']								= array( 'title', 'editor', 'thumbnail' );
+			$opts['taxonomies']								= array();
+
+			$opts['capabilities']['delete_others_posts']	= "delete_others_${1:capability}s";
+			$opts['capabilities']['delete_post']			= "delete_${1:capability}";
+			$opts['capabilities']['delete_posts']			= "delete_${1:capability}s";
+			$opts['capabilities']['delete_private_posts']	= "delete_private_${1:capability}s";
+			$opts['capabilities']['delete_published_posts']	= "delete_published_${1:capability}s";
+			$opts['capabilities']['edit_others_posts']		= "edit_others_${1:capability}s";
+			$opts['capabilities']['edit_post']				= "edit_${1:capability}";
+			$opts['capabilities']['edit_posts']				= "edit_${1:capability}s";
+			$opts['capabilities']['edit_private_posts']		= "edit_private_${1:capability}s";
+			$opts['capabilities']['edit_published_posts']	= "edit_published_${1:capability}s";
+			$opts['capabilities']['publish_posts']			= "publish_${1:capability}s";
+			$opts['capabilities']['read_post']				= "read_${1:capability}";
+			$opts['capabilities']['read_private_posts']		= "read_private_${1:capability}s";
+
+			$opts['labels']['add_new']						= esc_html__( 'Add New ${4:single}', '${6:text-domain}' );
+			$opts['labels']['add_new_item']					= esc_html__( 'Add New ${4:single}', '${6:text-domain}' );
+			$opts['labels']['all_items']					= esc_html__( '${5:plural}', '${6:text-domain}' );
+			$opts['labels']['archives']						= esc_html__( '${5:plural}', '${6:text-domain}' );
+			$opts['labels']['edit_item']					= esc_html__( 'Edit ${4:single}', '${6:text-domain}');
+			$opts['labels']['featured_image']				= esc_html__( '${7:featured_image}', '${6:text-domain}');
+			$opts['labels']['filter_items_list']			= esc_html__( '${5:plural}', '${6:text-domain}');
+			$opts['labels']['insert_into_item']				= esc_html__( '${4:single}', '${6:text-domain}');
+			$opts['labels']['items_list']					= esc_html__( '${5:plural}', '${6:text-domain}');
+			$opts['labels']['items_list_navigation']		= esc_html__( '${5:plural}', '${6:text-domain}');
+			$opts['labels']['menu_name']					= esc_html__( '${5:plural}', '${6:text-domain}' );
+			$opts['labels']['name']							= esc_html__( '${5:plural}', '${6:text-domain}' );
+			$opts['labels']['name_admin_bar']				= esc_html__( '${4:single}', '${6:text-domain}' );
+			$opts['labels']['new_item']						= esc_html__( 'New ${4:single}', '${6:text-domain}' );
+			$opts['labels']['not_found']					= esc_html__( 'No ${5:plural} Found', '${6:text-domain}' );
+			$opts['labels']['not_found_in_trash']			= esc_html__( 'No ${5:plural} Found in Trash', '${6:text-domain}' );
+			$opts['labels']['parent_item_colon']			= esc_html__( 'Parent ${5:plural} :', '${6:text-domain}' );
+			$opts['labels']['remove_featured_image']		= esc_html__( 'Remove ${7:featured_image}', '${6:text-domain}' );
+			$opts['labels']['search_items']					= esc_html__( 'Search ${5:plural}', '${6:text-domain}' );
+			$opts['labels']['set_featured_image']			= esc_html__( 'Set ${7:featured_image}', '${6:text-domain}' );
+			$opts['labels']['singular_name']				= esc_html__( '${4:single}', '${6:text-domain}' );
+			$opts['labels']['upload_to_this_item']			= esc_html__( '${4:single}', '${6:text-domain}' );
+			$opts['labels']['use_featured_image']			= esc_html__( 'Use as ${7:featured_image}', '${6:text-domain}' );
+			$opts['labels']['view_item']					= esc_html__( 'View ${4:single}', '${6:text-domain}' );
+
+			$opts['rewrite']['ep_mask']						= EP_PERMALINK;
+			$opts['rewrite']['feeds']						= FALSE;
+			$opts['rewrite']['pages']						= TRUE;
+			$opts['rewrite']['slug']						= esc_html__( '${3:post_type_name_lowercase}', '${6:text-domain}' );
+			$opts['rewrite']['with_front']					= TRUE;
+
+			$opts = apply_filters( '${6:text-domain}-cpt-${3:post_type_name_lowercase}-options', $opts );
+
+			register_post_type( '${3:post_type_name_lowercase}', $opts );"""
+	'WPTax':
+	    'prefix': 'WPTax'
+	    'body': """
+			$opts['description'] 							= '${6:taxonomy_description}';
+			$opts['hierarchical']							= TRUE;
+			//$opts['meta_box_cb'] 							= '';
+			$opts['public']									= TRUE;
+			$opts['publicly_queryable']						= TRUE;
+			$opts['query_var']								= '${1:taxonomy_name_lowercase}';
+			$opts['show_admin_column'] 						= FALSE;
+			$opts['show_in_menu']							= TRUE;
+			$opts['show_in_nav_menus']						= TRUE;
+			$opts['show_in_quick_edit']						= TRUE;
+			$opts['show_tag_cloud'] 						= TRUE;
+			$opts['show_ui']								= TRUE;
+			$opts['sort'] 									= '';
+			//$opts['update_count_callback'] 					= '';
+
+			$opts['capabilities']['assign_terms'] 			= 'edit_posts';
+			$opts['capabilities']['delete_terms'] 			= 'manage_categories';
+			$opts['capabilities']['edit_terms'] 			= 'manage_categories';
+			$opts['capabilities']['manage_terms'] 			= 'manage_categories';
+
+			$opts['labels']['add_new_item'] 				= esc_html__( 'Add New ${2:single}', '${4:text-domain}' );
+			$opts['labels']['add_or_remove_items'] 			= esc_html__( 'Add or remove ${3:plural}', '${4:text-domain}' );
+			$opts['labels']['all_items'] 					= esc_html__( '${3:plural}', '${4:text-domain}' );
+			$opts['labels']['choose_from_most_used'] 		= esc_html__( 'Choose from most used ${3:plural}', '${4:text-domain}' );
+			$opts['labels']['edit_item'] 					= esc_html__( 'Edit ${2:single}', '${4:text-domain}');
+			$opts['labels']['items_list'] 					= esc_html__( '${3:plural}', '${4:text-domain}');
+			$opts['labels']['items_list_navigation'] 		= esc_html__( '${3:plural}', '${4:text-domain}');
+			$opts['labels']['menu_name'] 					= esc_html__( '${3:plural}', '${4:text-domain}' );
+			$opts['labels']['name'] 						= esc_html__( '${3:plural}', '${4:text-domain}' );
+			$opts['labels']['new_item_name'] 				= esc_html__( 'New ${2:single} Name', '${4:text-domain}' );
+			$opts['labels']['no_terms'] 					= esc_html__( 'No ${3:plural}', '${4:text-domain}' );
+			$opts['labels']['not_found'] 					= esc_html__( 'No ${3:plural} Found', '${4:text-domain}' );
+			$opts['labels']['parent_item'] 					= esc_html__( 'Parent ${2:single}', '${4:text-domain}' );
+			$opts['labels']['parent_item_colon'] 			= esc_html__( 'Parent ${2:single}:', '${4:text-domain}' );
+			$opts['labels']['popular_items'] 				= esc_html__( 'Popular ${3:plural}', '${4:text-domain}' );
+			$opts['labels']['search_items'] 				= esc_html__( 'Search ${3:plural}', '${4:text-domain}' );
+			$opts['labels']['separate_items_with_commas'] 	= esc_html__( 'Separate ${3:plural} with commas', '${4:text-domain}' );
+			$opts['labels']['singular_name'] 				= esc_html__( '${2:single}', '${4:text-domain}' );
+			$opts['labels']['update_item'] 					= esc_html__( 'Update ${2:single}', '${4:text-domain}' );
+			$opts['labels']['view_item'] 					= esc_html__( 'View ${2:single}', '${4:text-domain}' );
+
+			$opts['rewrite']['ep_mask']						= EP_NONE;
+			$opts['rewrite']['hierarchical']				= FALSE;
+			$opts['rewrite']['slug']						= esc_html__( '${1:taxonomy_name_lowercase}', '${4:text-domain}' );
+			$opts['rewrite']['with_front']					= FALSE;
+
+			$opts = apply_filters( '${4:text-domain}-taxonomy-${1:taxonomy_name_lowercase}-options', $opts );
+
+			register_taxonomy( '${1:taxonomy_name_lowercase}', '${5:post_type_name}', $opts );"""
