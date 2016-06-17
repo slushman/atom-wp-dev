@@ -1,0 +1,18 @@
+{
+  "name": "wp-snippets",
+  "main": "./lib/wp-snippets",
+  "version": "0.0.0",
+  "description": "Snippets for WordPress development.",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "wp-snippets:toggle"
+  },
+  "repository": "https://github.com/atom/wp-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

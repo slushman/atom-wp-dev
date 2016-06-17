@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle wp-snippets",
+        "command": "wp-snippets:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "wp-snippets",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "wp-snippets:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
