@@ -156,7 +156,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerPassword':
-	    'prefix': 'wpcp'
+	    'prefix': 'wpcpw'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -210,7 +210,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerSelect':
-	    'prefix': 'wpcs'
+	    'prefix': 'wpcsel'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -297,7 +297,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerPageSelect':
-	    'prefix': 'wpcps'
+	    'prefix': 'wpcpage'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -323,7 +323,7 @@
 			);
 			$wp_customize->get_setting( 'dropdown-pages' )->transport = 'postMessage';"""
 	'WPCustomizerColorChoose':
-	    'prefix': 'wpccc'
+	    'prefix': 'wpccolor'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -378,7 +378,7 @@
 				)
 			);"""
 	'WPCustomizerImageUpload':
-	    'prefix': 'wpci'
+	    'prefix': 'wpcimg'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -405,7 +405,7 @@
 				)
 			);"""
 	'WPCustomizerMediaUpload':
-	    'prefix': 'wpcm'
+	    'prefix': 'wpcmedia'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -911,7 +911,7 @@
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 ".source.js"
 	'WPCustomizerBasicJS':
-		'prefix': 'wpcbasicjs'
+		'prefix': 'wpcjs'
 		'body': """
 		// ${1:setting_name}.
 		wp.customize( '${2:setting_id}', function( value ) {
