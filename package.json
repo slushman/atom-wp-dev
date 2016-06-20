@@ -1,6 +1,6 @@
 {
-	"name": "wp-snippets",
-	"main": "./lib/wp-snippets",
+	"name": "wp-dev",
+	"main": "./lib/wp-dev",
 	"version": "0.0.0",
 	"description": "Snippets for WordPress development.",
 	"keywords": [
@@ -10,18 +10,18 @@
 		"plugin"
 	],
 	"activationCommands": {
-		"atom-workspace": "wp-snippets:toggle"
+		"atom-workspace": "wp-dev:toggle"
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/slushman/atom-wp-snippets.git"
+		"url": "https://github.com/slushman/atom-wp-dev.git"
 	},
 	"license": "MIT",
 	"engines": {
 		"atom": ">=1.0.0 <2.0.0"
 	},
 	"bugs": {
-		"url": "https://github.com/slushman/atom-wp-snippets/issues"
+		"url": "https://github.com/slushman/atom-wp-dev/issues"
 	},
 	"dependencies": {
 	}
