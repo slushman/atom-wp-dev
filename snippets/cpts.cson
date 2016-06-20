@@ -1,6 +1,6 @@
 ".text.html.php":
 	'WPCPT':
-	    'prefix': 'WPCPT'
+	    'prefix': 'wpcpt'
 	    'body': """
 			$opts['can_export']								= TRUE;
 			$opts['capability_type']						= ${1:capability};
@@ -74,7 +74,7 @@
 
 			register_post_type( '${3:post_type_name_lowercase}', $opts );"""
 	'WPTax':
-	    'prefix': 'WPTax'
+	    'prefix': 'wptax'
 	    'body': """
 			$opts['description'] 							= '${6:taxonomy_description}';
 			$opts['hierarchical']							= TRUE;

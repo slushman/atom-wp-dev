@@ -1,10 +1,10 @@
 ".text.html.php":
 	'WPCustomizerPanel':
-	    'prefix': 'WPCustomizerPanel'
+	    'prefix': 'wpcp'
 	    'body': """// ${1:panel_name} Panel
 			$wp_customize->add_panel( '${2:panel_id}',
 				array(
-					'capability'  		=> 'edit_theme_options',
+					'capability'  		=> 'edgepait_theme_options',
 					'description'  		=> esc_html__( '${3:description}', '${4:text-domain}' ),
 					'priority'  		=> 10,
 					'theme_supports'  	=> '',
@@ -12,7 +12,7 @@
 				)
 			);"""
 	'WPCustomizerSection':
-	    'prefix': 'WPCustomizerSection'
+	    'prefix': 'wpcs'
 	    'body': """// ${1:section_name} Section
 			$wp_customize->add_section( '${2:section_id}',
 				array(
@@ -26,7 +26,7 @@
 				)
 			);"""
 	'WPCustomizerText':
-	    'prefix': 'WPCustomizerText'
+	    'prefix': 'wpct'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -52,7 +52,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerURL':
-	    'prefix': 'WPCustomizerURL'
+	    'prefix': 'wpcu'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -78,7 +78,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerEmail':
-	    'prefix': 'WPCustomizerEmail'
+	    'prefix': 'wpce'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -104,7 +104,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerDate':
-	    'prefix': 'WPCustomizerDate'
+	    'prefix': 'wpcd'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -130,7 +130,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerCheckbox':
-	    'prefix': 'WPCustomizerCheckbox'
+	    'prefix': 'wpcc'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -156,7 +156,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerPassword':
-	    'prefix': 'WPCustomizerPassword'
+	    'prefix': 'wpcp'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -182,7 +182,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerRadios':
-	    'prefix': 'WPCustomizerRadios'
+	    'prefix': 'wpcr'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -210,7 +210,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerSelect':
-	    'prefix': 'WPCustomizerSelect'
+	    'prefix': 'wpcs'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -238,7 +238,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerTextArea':
-	    'prefix': 'WPCustomizerTextArea'
+	    'prefix': 'wpcta'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -264,7 +264,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerRange':
-	    'prefix': 'WPCustomizerRange'
+	    'prefix': 'wpcrange'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -297,7 +297,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerPageSelect':
-	    'prefix': 'WPCustomizerPageSelect'
+	    'prefix': 'wpcps'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -323,7 +323,7 @@
 			);
 			$wp_customize->get_setting( 'dropdown-pages' )->transport = 'postMessage';"""
 	'WPCustomizerColorChoose':
-	    'prefix': 'WPCustomizerColorChoose'
+	    'prefix': 'wpccc'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -351,7 +351,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerFileUpload':
-	    'prefix': 'WPCustomizerFileUpload'
+	    'prefix': 'wpcfile'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -378,7 +378,7 @@
 				)
 			);"""
 	'WPCustomizerImageUpload':
-	    'prefix': 'WPCustomizerImageUpload'
+	    'prefix': 'wpci'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -405,7 +405,7 @@
 				)
 			);"""
 	'WPCustomizerMediaUpload':
-	    'prefix': 'WPCustomizerMediaUpload'
+	    'prefix': 'wpcm'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -432,7 +432,7 @@
 				)
 			);"""
 	'WPCustomizerCroppedImage':
-	    'prefix': 'WPCustomizerCroppedImage'
+	    'prefix': 'wpccrop'
 	    'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
@@ -463,7 +463,7 @@
 				)
 			);"""
 	'WPCustomizerCountriesList':
-		'prefix': 'WPCustomizerCountriesList'
+		'prefix': 'wpccountry'
 		'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -746,7 +746,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerUSStates':
-		'prefix': 'WPCustomizerUSStates'
+		'prefix': 'wpcus'
 		'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -835,7 +835,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerCanadianStates':
-		'prefix': 'WPCustomizerCanadianStates'
+		'prefix': 'wpccanada'
 		'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -875,7 +875,7 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 	'WPCustomizerAustralianStates':
-		'prefix': 'WPCustomizerAustralianStates'
+		'prefix': 'wpcaus'
 		'body': """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
@@ -909,3 +909,13 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
+".source.js"
+	'WPCustomizerBasicJS':
+		'prefix': 'wpcbasicjs'
+		'body': """
+		// ${1:setting_name}.
+		wp.customize( '${2:setting_id}', function( value ) {
+			value.bind( function( to ) {
+				\$( '${3:id_or_class}' ).text( to );
+			} );
+		} );"""

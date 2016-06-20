@@ -1,6 +1,6 @@
 ".text.html.php":
 	'WPAdminMenu':
-	    'prefix': 'WPAdminMenu'
+	    'prefix': 'wpam'
 	    'body': """
 			add_menu_page(
 				esc_html__( '${1:page_title}', '${7:text-domain}' ),
@@ -12,7 +12,7 @@
 				${6:position}
 			);"""
 	'WPAdminSubMenu':
-	    'prefix': 'WPAdminSubMenu'
+	    'prefix': wpasub
 	    'body': """
 			add_submenu_page(
 				'${1:parent_slug}',
@@ -23,13 +23,13 @@
 				array( $this, '${5:function_name}' )
 			);"""
 	'WPEnqueueScript':
-	    'prefix': 'WPEnqueueScript'
+	    'prefix': 'wpscript'
 	    'body': """wp_enqueue_script( ${1:unique_name}, '${2:source_url}', array( ${3:dependencies} ), ${4:version}, ${5:in_footer_boolean} );"""
 	'WPEnqueueStyle':
-	    'prefix': 'WPEnqueueStyle'
+	    'prefix': 'wpstyle'
 	    'body': """wp_enqueue_style( ${1:unique_name}, '${2:source_url}', array( ${3:dependencies} ), ${4:version}, '${5:media}' );"""
 	'WPi18n':
-	    'prefix': 'WPi18n'
+	    'prefix': 'wpi18n'
 	    'body': """
 			load_plugin_textdomain(
 				'${1:text-domain}',
@@ -37,7 +37,7 @@
 				'${2:relative_path}'
 			);"""
 	'WPMetabox':
-	    'prefix': 'WPMetabox'
+	    'prefix': 'wpmb'
 	    'body': """
 			add_meta_box(
 				'${1:metabox_id}',
@@ -49,7 +49,7 @@
 				${8:args_array}
 			);"""
 	'WPRegisterSetting':
-	    'prefix': 'WPRegisterSetting'
+	    'prefix': 'wpsetting'
 	    'body': """
 			register_setting(
 				${1:option_group},
@@ -57,7 +57,7 @@
 				array( $this, '${3:sanitize_callback}' )
 			);"""
 	'WPSettingsField':
-	    'prefix': 'WPSettingsField'
+	    'prefix': 'wpsetfield'
 	    'body': """
 			add_settings_field(
 				'${1:field_id}',
@@ -72,7 +72,7 @@
 				)
 			);"""
 	'WPSettingsSection':
-	    'prefix': 'WPSettingsSection'
+	    'prefix': 'wpsetsection'
 	    'body': """
 			add_settings_section(
 				${1:section_id},
