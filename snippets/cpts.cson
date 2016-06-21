@@ -1,7 +1,7 @@
 ".text.html.php":
-	'WPCPT':
-	    'prefix': 'wpcpt'
-	    'body': """
+	"WPCPT":
+		"prefix": "wpcpt"
+		"body": """
 			$opts['can_export']								= TRUE;
 			$opts['capability_type']						= ${1:capability};
 			$opts['description']							= '';
@@ -73,9 +73,9 @@
 			$opts = apply_filters( '${6:text-domain}-cpt-${3:post_type_name_lowercase}-options', $opts );
 
 			register_post_type( '${3:post_type_name_lowercase}', $opts );"""
-	'WPTax':
-	    'prefix': 'wptax'
-	    'body': """
+	"WPTax":
+		"prefix": "wptax"
+		"body": """
 			$opts['description'] 							= '${6:taxonomy_description}';
 			$opts['hierarchical']							= TRUE;
 			//$opts['meta_box_cb'] 							= '';

@@ -1,7 +1,7 @@
 ".text.html.php":
-	'WPCustomizerPanel':
-	    'prefix': 'wpcp'
-	    'body': """// ${1:panel_name} Panel
+	"WPCustomizerPanel":
+		"prefix": "wpcp"
+		"body": """// ${1:panel_name} Panel
 			$wp_customize->add_panel( '${2:panel_id}',
 				array(
 					'capability'  		=> 'edgepait_theme_options',
@@ -11,9 +11,9 @@
 					'title'  			=> esc_html__( '${1:panel_name}', '${4:text-domain}' ),
 				)
 			);"""
-	'WPCustomizerSection':
-	    'prefix': 'wpcs'
-	    'body': """// ${1:section_name} Section
+	"WPCustomizerSection":
+		"prefix": "wpcs"
+		"body": """// ${1:section_name} Section
 			$wp_customize->add_section( '${2:section_id}',
 				array(
 					'active_callback' 	=> '${3:callback_function}',
@@ -25,9 +25,9 @@
 					'title'  			=> esc_html__( '${1:section_name}', '${5:text-domain}' ),
 				)
 			);"""
-	'WPCustomizerText':
-	    'prefix': 'wpct'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerText":
+		"prefix": "wpct"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -51,9 +51,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerURL':
-	    'prefix': 'wpcu'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerURL":
+		"prefix": "wpcu"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -77,9 +77,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerEmail':
-	    'prefix': 'wpce'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerEmail":
+		"prefix": "wpce"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -103,9 +103,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerDate':
-	    'prefix': 'wpcd'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerDate":
+		"prefix": "wpcd"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -129,9 +129,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerCheckbox':
-	    'prefix': 'wpcc'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerCheckbox":
+		"prefix": "wpcc"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -155,9 +155,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerPassword':
-	    'prefix': 'wpcpw'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerPassword":
+		"prefix": "wpcpw"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -181,9 +181,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerRadios':
-	    'prefix': 'wpcr'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerRadios":
+		"prefix": "wpcr"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -209,9 +209,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerSelect':
-	    'prefix': 'wpcsel'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerSelect":
+		"prefix": "wpcsel"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -237,9 +237,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerTextArea':
-	    'prefix': 'wpcta'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerTextArea":
+		"prefix": "wpcta"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -263,9 +263,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerRange':
-	    'prefix': 'wpcrange'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerRange":
+		"prefix": "wpcrange"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -296,9 +296,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerPageSelect':
-	    'prefix': 'wpcpage'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerPageSelect":
+		"prefix": "wpcpage"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -322,9 +322,9 @@
 				)
 			);
 			$wp_customize->get_setting( 'dropdown-pages' )->transport = 'postMessage';"""
-	'WPCustomizerColorChoose':
-	    'prefix': 'wpccolor'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerColorChoose":
+		"prefix": "wpccolor"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -350,9 +350,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerFileUpload':
-	    'prefix': 'wpcfile'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerFileUpload":
+		"prefix": "wpcfile"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
 				array(
@@ -377,9 +377,9 @@
 					),
 				)
 			);"""
-	'WPCustomizerImageUpload':
-	    'prefix': 'wpcimg'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerImageUpload":
+		"prefix": "wpcimg"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
 				array(
@@ -404,9 +404,9 @@
 					),
 				)
 			);"""
-	'WPCustomizerMediaUpload':
-	    'prefix': 'wpcmedia'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerMediaUpload":
+		"prefix": "wpcmedia"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
 				array(
@@ -431,9 +431,9 @@
 					),
 				)
 			);"""
-	'WPCustomizerCroppedImage':
-	    'prefix': 'wpccrop'
-	    'body': """// ${1:field_name} Field
+	"WPCustomizerCroppedImage":
+		"prefix": "wpccrop"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}' ,
 				array(
@@ -462,9 +462,9 @@
 					),
 				)
 			);"""
-	'WPCustomizerCountriesList':
-		'prefix': 'wpccountry'
-		'body': """// ${1:field_name} Field
+	"WPCustomizerCountriesList":
+		"prefix": "wpccountry"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -745,9 +745,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerUSStates':
-		'prefix': 'wpcus'
-		'body': """// ${1:field_name} Field
+	"WPCustomizerUSStates":
+		"prefix": "wpcus"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -834,9 +834,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerCanadianStates':
-		'prefix': 'wpccanada'
-		'body': """// ${1:field_name} Field
+	"WPCustomizerCanadianStates":
+		"prefix": "wpccanada"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -874,9 +874,9 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-	'WPCustomizerAustralianStates':
-		'prefix': 'wpcaus'
-		'body': """// ${1:field_name} Field
+	"WPCustomizerAustralianStates":
+		"prefix": "wpcaus"
+		"body": """// ${1:field_name} Field
 			$wp_customize->add_setting(
 				'${2:field_id}',
 				array(
@@ -910,12 +910,11 @@
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
 ".source.js"
-	'WPCustomizerBasicJS':
-		'prefix': 'wpcjs'
-		'body': """
-		// ${1:setting_name}.
-		wp.customize( '${2:setting_id}', function( value ) {
-			value.bind( function( to ) {
-				\$( '${3:id_or_class}' ).text( to );
-			} );
-		} );"""
+	"WPCustomizerBasicJS":
+		"prefix": "wpcjs"
+		"body": """// ${1:setting_name}.
+			wp.customize( '${2:setting_id}', function( value ) {
+				value.bind( function( to ) {
+					$( '${3:id_or_class}' ).text( to );
+				} );
+			} );"""

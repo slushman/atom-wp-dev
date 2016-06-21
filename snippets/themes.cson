@@ -1,7 +1,7 @@
 ".text.html.php":
 	'WPLoop':
-	    'prefix': 'wploop'
-	    'body': """
+		"prefix": 'wploop'
+		"body": """
 			<?php
 			if ( have_posts() ) :
 

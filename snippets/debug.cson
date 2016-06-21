@@ -1,8 +1,8 @@
 ".text.html.php":
-	'showmephp':
-	    'prefix': 'showmephp'
-	    'body': 'echo \'<pre>\'; print_r( $1 ); echo \'</pre>\';'
-'.source.js':
-	'showmejs':
-		'prefix': 'showmejs'
-		'body': 'console.log( $1 );'
+	"showmephp":
+		"prefix": "showmephp"
+		"body": "echo '<pre>'; print_r( $1 ); echo '</pre>';"
+".source.js":
+	"showmejs":
+		"prefix": "showmejs"
+		"body": "console.log( $1 );"
