@@ -1,24 +1,24 @@
 {
-	"name": "wp-dev",
-	"main": "./lib/wp-dev",
-	"version": "0.3.2",
-	"description": "Snippets for WordPress development.",
-	"keywords": [
-		"WordPress",
-		"snippets",
-		"theme",
-		"plugin"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/slushman/atom-wp-dev.git"
-	},
-	"license": "MIT",
-	"engines": {
-		"atom": ">=1.0.0 <2.0.0"
-	},
-	"bugs": {
-		"url": "https://github.com/slushman/atom-wp-dev/issues"
-	},
-	"dependencies": {}
+  "name": "wp-dev",
+  "main": "./lib/wp-dev",
+  "version": "0.3.3",
+  "description": "Snippets for WordPress development.",
+  "keywords": [
+    "WordPress",
+    "snippets",
+    "theme",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slushman/atom-wp-dev.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/slushman/atom-wp-dev/issues"
+  },
+  "dependencies": {}
 }
