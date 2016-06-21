@@ -909,7 +909,7 @@
 				)
 			);
 			$wp_customize->get_setting( '${2:field_id}' )->transport = 'postMessage';"""
-".source.js"
+".source.js":
 	"WPCustomizerBasicJS":
 		"prefix": "wpcjs"
 		"body": """// ${1:setting_name}.
