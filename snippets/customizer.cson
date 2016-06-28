@@ -198,7 +198,7 @@
 				array(
 					'active_callback' 	=> '',
 					'choices' 			=> array(
-						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}, '${5:text-domain}' ),
+						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}', '${5:text-domain}' ),
 					),
 					'description' 		=> esc_html__( '${6:description}', '${5:text-domain}' ),
 					'label'  			=> esc_html__( '${1:field_name}', '${5:text-domain}' ),
@@ -226,7 +226,7 @@
 				array(
 					'active_callback' 	=> '',
 					'choices' 			=> array(
-						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}, '${5:text-domain}' ),
+						'${3:choice1_id}' 	=> esc_html__( '${4:choice1_name}', '${5:text-domain}' ),
 					),
 					'description' 		=> esc_html__( '${6:description}', '${5:text-domain}' ),
 					'label'  			=> esc_html__( '${1:field_name}', '${5:text-domain}' ),
