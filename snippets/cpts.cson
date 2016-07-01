@@ -1,4 +1,4 @@
-".text.html.php":
+".text.html.php, .source.php":
 	"WPCPT":
 		"prefix": "wpcpt"
 		"body": """

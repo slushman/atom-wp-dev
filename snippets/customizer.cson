@@ -1,4 +1,4 @@
-".text.html.php":
+".text.html.php, .source.php":
 	"WPCustomizerPanel":
 		"prefix": "wpcp"
 		"body": """// ${1:panel_name} Panel

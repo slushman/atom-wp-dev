@@ -1,4 +1,4 @@
-".text.html.php":
+".text.html.php, .source.php":
 	"WPAdminMenu":
 		"prefix": "wpam"
 		"body": """
